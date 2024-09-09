@@ -10,7 +10,13 @@
             <div class="col-md-3 d-flex align-items-center">
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-bus-front"></i></span>
-                <input type="text" class="form-control" placeholder="From" value="Nagpur">
+                <!-- <input type="text" class="form-control" placeholder="From" value="Nagpur"> -->
+                 <select class="form-select" >
+                  <option>Select From Location</option>
+                  @for(item of location$|async;track $index){
+                    <option [value]="item.locationId">{{item.locationName}}</option>
+                  }
+                 </select>
               </div>
             </div>
             <div class="col-md-1 text-center d-flex align-items-center justify-content-center">
@@ -19,7 +25,13 @@
             <div class="col-md-3 d-flex align-items-center">
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-bus-front"></i></span>
-                <input type="text" class="form-control" placeholder="To" value="Pune">
+                <!-- <input type="text" class="form-control" placeholder="To" value="Pune"> -->
+                <select class="form-select">
+                  <option>Select To Location</option>
+                  @for(item of location$|async;track $index){
+                    <option [value]="item.locationId">{{item.locationName}}</option>
+                  }
+                 </select>
               </div>
             </div>
             <div class="col-md-3 d-flex align-items-center">
@@ -29,7 +41,7 @@
               </div>
             </div>
             <div class="col-md-2 text-center">
-              <button type="submit" class="btn btn-light text-danger w-100">SEARCH BUSES</button>
+              <button type="submit"  class="btn btn-light text-danger w-100">SEARCH BUSES</button>
             </div>
           </div>
         </form>
